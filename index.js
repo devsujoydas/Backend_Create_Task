@@ -12,7 +12,7 @@ app.set('view engine', 'ejs')
 
 app.get('/', (req, res) => {
     fs.readdir("./files", (err, files) => {
-        res.render('index', { files: files })
+        res.render('index1', { files: files })
     })
 })
 
@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 // fs.readFile("filename", "utf-8", (err, filedata) => {})
 app.get('/files/:filename', (req, res) => {
     fs.readFile(`./files/${req.params.filename}`, 'utf-8', (err, filedata) => {
-        res.render("filedetails")
+        res.render("filedetails1", { filename: req.params.filename, filedata: filedata })
     })
 })
 
@@ -36,5 +36,4 @@ app.post('/create', (req, res) => {
 app.listen(port, () => {
     console.log(`Server runnig on port: ${port}`)
 })
-
 
