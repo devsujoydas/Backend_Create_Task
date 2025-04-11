@@ -1,0 +1,2 @@
+CareerHub is a fully responsive job listing portal that allows job seekers to browse openings by category, location, and company. Developed using React and JSON data, this platform focuses on clean UI, filtering logic, and dynamic rendering. It’s a great example of building real-world application UIs and managing state effectively in React.
+

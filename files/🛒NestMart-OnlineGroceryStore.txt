@@ -1,0 +1,1 @@
+NestMart is a beautifully crafted frontend template for a grocery e-commerce store. Developed using HTML, Tailwind CSS, and JavaScript, it showcases category-wise product display, shopping cart UI, and promotional banners. This project is excellent for demonstrating frontend design skills and layout composition, suitable for beginner to intermediate developers.

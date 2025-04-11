@@ -1,0 +1,1 @@
+GameVerse is a stylish, single-page web application designed for showcasing and selling digital games. Built using React and Tailwind CSS, this UI project features animated sliders (Swiper.js), responsive cards, and a modern dark theme. This project highlights front-end best practices, reusable components, and responsive design for e-commerce-style platforms.

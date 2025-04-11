@@ -2,7 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const app = express()
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -16,6 +16,24 @@ app.get('/', (req, res) => {
     })
 })
 
+app.get('/edit/:filename', (req, res) => {
+    res.render('edit', { filename: req.params.filename, })
+})
+
+app.post('/edit', (req, res) => {
+    fs.rename(`./files/${req.body.previousName}`, `./files/${req.body.newName}`, () => {
+        res.redirect("/")
+    })
+})
+
+app.post('/delete/:filename', (req, res) => {
+    fs.unlink(`./files/${req.body.filename}`, (err) => {
+        if (err) console.error("Error deleting file:", err);
+        console.log("File deleted successfully");
+        res.redirect("/")
+
+    });
+})
 
 // fs.readFile("filename", "utf-8", (err, filedata) => {})
 app.get('/files/:filename', (req, res) => {
@@ -24,14 +42,12 @@ app.get('/files/:filename', (req, res) => {
     })
 })
 
-
 // fs.writeFile("filename.txt", data, ()=>{})
 app.post('/create', (req, res) => {
     fs.writeFile(`./files/${req.body.title.split(' ').join('')}.txt`, req.body.details, () => {
         res.redirect('/')
     })
 })
-
 
 app.listen(port, () => {
     console.log(`Server runnig on port: ${port}`)
